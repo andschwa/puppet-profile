@@ -2,5 +2,17 @@ class profile::chat {
   include mumble
   include prosody
 
-  ensure_packages(['znc'])
+  package { 'znc': }
+
+  case $::operatingsystem {
+    'Ubuntu': {
+      case $::operatingsystemrelease {
+        '12.04': {
+          apt::ppa { 'ppa:teward/znc':
+            before => Package['znc']
+          }
+        }
+      }
+    }
+  }
 }

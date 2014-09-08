@@ -18,7 +18,7 @@ class profile::irc_bouncer {
     stdout_logfile => '/var/log/supervisor/znc_stdout.log',
     stderr_logfile => '/var/log/supervisor/znc_stderr.log',
     environment    => 'HOME="/home/znc"',
-    require        => 'znc'
+    require        => User['znc'],
   }
 
   case $::operatingsystem {

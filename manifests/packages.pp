@@ -11,11 +11,4 @@ class profile::packages {
       include ubuntu
     }
   }
-
-  $pip_packages = hiera_array('pip_packages')
-  package { $pip_packages:
-    ensure   => present,
-    provider => pip,
-    require  => Package['python-pip']
-  }
 }

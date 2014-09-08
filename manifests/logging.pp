@@ -1,5 +1,5 @@
 class profile::logging {
   include papertrail
 
-  package { ['logwatch', 'tiger']: }
+  ensure_packages(['logwatch', 'tiger'])
 }

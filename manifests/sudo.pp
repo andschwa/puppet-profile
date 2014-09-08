@@ -1,5 +1,5 @@
 class profile::sudo {
-  class { 'sudo':
+  class { '::sudo':
     sudoers => hiera_hash('sudoers', {}),
   }
 }

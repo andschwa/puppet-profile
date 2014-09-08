@@ -1,6 +1,6 @@
 class profile::backup {
-  package { ['duplicity', 'gnupg', 'cifs-utils']: }
-  package { ['pyrax']:
+  ensure_packages(['duplicity', 'gnupg', 'cifs-utils'])
+  package { 'pyrax':
     provider => pip,
     require  => Package['python-pip'],
   }

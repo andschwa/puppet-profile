@@ -13,7 +13,7 @@ class profile {
 
   case $::operatingsystem {
     'Ubuntu': {
-      package { ['python', 'python-pip']: }
+      ensure_packages(['python', 'python-pip'])
       package { ['virtualenvwrapper']:
         provider => pip,
         require  => Package['python-pip'],

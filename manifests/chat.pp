@@ -2,5 +2,5 @@ class profile::chat {
   include mumble
   include prosody
 
-  package { 'znc': }
+  ensure_packages(['znc'])
 }

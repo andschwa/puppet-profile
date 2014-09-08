@@ -1,0 +1,8 @@
+* Puppet Profiles
+This is a quick refactoring of my =site.pp= and Hiera YAML hierarchy
+such that all uses of =create_resources()= are now contained in
+profiles. All classes are now included in profiles. All packages and
+Ubuntu PPA's are declared in profiles (with the use of
+=ensure_packages()= where appropriate).
+
+Included and declared in my [[https://github.com/andschwa/puppet-manifests][puppet-manifests]].

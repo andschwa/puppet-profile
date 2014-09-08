@@ -1,7 +1,12 @@
 class profile::irc_bouncer {
   package { 'znc': }
-  group { 'znc': }
+
+  group { 'znc':
+    ensure => present,
+  }
+
   user { 'znc':
+    ensure     => present,
     comment    => 'User for IRC bouncer',
     home       => '/home/znc',
     managehome => true,

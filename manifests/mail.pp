@@ -19,4 +19,16 @@ class profile::mail {
     provider => pip,
     require  => Package['python-pip'],
   }
+
+    case $::operatingsystem {
+    'Ubuntu': {
+      case $::operatingsystemrelease {
+        '12.04', '14.04': {
+          apt::ppa { 'ppa:malte.swart/dovecot-2.2':
+            before => Package['dovecot']
+          }
+        }
+      }
+    }
+  }
 }

@@ -25,7 +25,7 @@ class profile::mail {
       case $::operatingsystemrelease {
         '12.04', '14.04': {
           apt::ppa { 'ppa:malte.swart/dovecot-2.2':
-            before => Package['dovecot']
+            before => Package['dovecot-imapd']
           }
         }
       }

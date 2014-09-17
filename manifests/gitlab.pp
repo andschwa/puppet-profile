@@ -7,5 +7,20 @@ class profile::gitlab {
   include postgresql
   include postgresql::globals
   include postgresql::server
-  include redis
+
+  class { 'redis':
+    system_sysctl => true
+  }
+
+  case $::operatingsystem {
+    'Ubuntu': {
+      case $::operatingsystemrelease {
+        '12.04', '14.04': {
+          apt::ppa { 'ppa:chris-lea/redis-server':
+            before => Package['redis']
+          }
+        }
+      }
+    }
+  }
 }

@@ -9,7 +9,7 @@ class profile::backup {
   case $::operatingsystem {
     'Ubuntu': {
       case $::operatingsystemrelease {
-        '12.04', '14.04': {
+        '12.04': {
           apt::ppa { 'ppa:duplicity-team/ppa':
             before => Package['duplicity']
           }

@@ -1,8 +1,9 @@
 class profile::gitlab {
   include profile::web
-  include profile::mail
 
   include ::gitlab
+
+  include postfix
 
   include postgresql
   include postgresql::globals

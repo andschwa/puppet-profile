@@ -9,6 +9,15 @@ class profile::packages {
       include apt
       include apt::unattended_upgrades
       include ubuntu
+
+      ensure_packages(['python', 'python-pip'])
+
+      package { ['virtualenvwrapper']:
+        provider => pip,
+        require  => Package['python-pip'],
+      }
+
+      apt::ppa { 'ppa:pg-radadia/tmux-stable': }
     }
   }
 }
